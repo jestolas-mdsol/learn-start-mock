@@ -1,0 +1,59 @@
+.signup_overlay {
+  background-color: $black;
+  height: 100%;
+  opacity: 0.8;
+  position: fixed;
+  width: 100%;
+
+  @include breakMobile {
+    position: static;
+  }
+}
+
+.signup_wrapper {
+  align-items: center;
+  backgroud-color: $white;
+  display: flex;
+  flex-direction: column;
+  height: 332px;
+  width: 455px;
+
+  @include breakMobile {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+  h3 {
+    font-size: $heading-m;
+  }
+
+  input {
+    border: 1px solid $gray-2;
+    background-color: $gray-3;
+    width: 70%;
+    height: 45px;
+    font-size: $text-l;
+    font-weight: 400;
+    max-width: 300px;
+    text-indent: 15px;
+  }
+
+  button {
+    border: none;
+    color: $white;
+    font-size: 15px;
+    height: 45px;
+    max-width: 304px;
+    margin-top: 10px;
+    font-weight: 600;
+    background-color: $turquoise;
+    width: 71%;
+  }
+}
+
+// @media (min-width: 500px) {
+//   .signup_overlay {
+//     background-color: #ff0;
+//   }
+// }

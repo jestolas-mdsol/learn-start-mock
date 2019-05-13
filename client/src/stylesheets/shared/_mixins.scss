@@ -1,0 +1,7 @@
+$mobileMaxWidth: 425px;
+
+@mixin breakMobile {
+  @media (max-width: $mobileMaxWidth) {
+    @content;
+  }
+}
