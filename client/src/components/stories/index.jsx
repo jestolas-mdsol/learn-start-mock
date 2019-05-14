@@ -1,24 +1,6 @@
 import React from 'react';
 import Story from './story';
-
-const latestStories = {
-  title: 'Tales Of Mordor: Chapter',
-  author: 'Yolo Baggins'
-}
-
-const editorsPicks = {
-  title: 'Griffin door: Volume',
-  author: 'Gandalf Silver'
-}
-
-const buildStories = ({ title, author }) => (
-  Array(3).fill().map((_, i) => {
-    // const story = storyObject;
-    const newTitle = `${title} ${i + 1}`
-
-    return Object.assign({}, { title: newTitle, author });
-  })
-)
+import { latestStories, editorsPicks, buildStories } from './config.js'
 
 const Stories = () => {
   const renderLatestStories = () => (
