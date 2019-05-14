@@ -65,6 +65,10 @@
     max-width: none;
     text-indent: 15px;
 
+    &::placeholder {
+      color: $gray-1;
+    }
+
     @include breakMobile {
       width: 70%;
       max-width: 300px;
@@ -101,8 +105,10 @@
   }
 }
 
-// @media (min-width: 500px) {
-//   .signup_overlay {
-//     background-color: #ff0;
-//   }
-// }
+.inputError {
+  background-color: $pink !important;
+
+  &::placeholder {
+    color: $red !important;
+  }
+}
