@@ -71,13 +71,25 @@ class App extends Component {
     })
   }
 
+  renderStories =() => {
+    console.log('whee')
+    return null;
+  }
+
   render() {
     return(
       <div>
         {this.renderSignup()}
         <Header toggleSignup={this.toggleSignup} />
-        <Route exact path="/" component={Hero} />
-        <Route path="/stories" component={Stories} />
+        <div className="hero">
+          <h1>Stay hungry. Stay Foolish.</h1>
+          <p>Learn from the hottest startups in the world</p>
+          <button>Read Now</button>
+        </div>
+        <div className="stories">
+          <h1>Stories here</h1>
+          {this.renderStories}
+        </div>
       </div>
     )
   }
