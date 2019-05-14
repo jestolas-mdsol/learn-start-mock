@@ -21,9 +21,18 @@ const Stories = () => {
 
   const renderEditorsPicks = () => (
     buildStories(editorsPicks)
-      .map(({ title, author }) => (
-        <Story key={title} title={title} author={author}/>
-      ))
+      .map(({ title, author }, i) => {
+        const imageFloatLeft = i % 2 === 1;
+
+        return(
+          <Story
+          key={title}
+          title={title}
+          author={author}
+          imageFloatLeft={imageFloatLeft}
+          />
+        )
+      })
   )
 
   return(
