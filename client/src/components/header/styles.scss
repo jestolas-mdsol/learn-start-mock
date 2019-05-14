@@ -2,6 +2,10 @@
   background-color: $white;
   display: block;
   height: 70px;
+
+  a {
+    color: inherit;
+  }
 }
 
 .header_left_text {

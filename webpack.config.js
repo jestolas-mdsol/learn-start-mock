@@ -99,6 +99,7 @@ module.exports = {
     contentBase: DIST_PATH,
     compress: true,
     port: 1337,
+    historyApiFallback: true,
   },
   mode: 'development',
   plugins: [
