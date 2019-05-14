@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom"
+
+import Hero from '../hero';
+import Stories from '../stories';
 import SignUp from '../sign-up';
 import Header from '../header';
 import styles from './styles';
@@ -13,6 +17,9 @@ class App extends Component {
       password: '',
       showSignup: true,
       formSubmitted: false,
+
+      // ideally, react-router-dom should be implemented
+      // this is just a placeholder to render stories vs
     }
   }
 
