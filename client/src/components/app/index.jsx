@@ -5,7 +5,6 @@ import Hero from '../hero';
 import Stories from '../stories';
 import SignUp from '../sign-up';
 import Header from '../header';
-import styles from './styles';
 
 class App extends Component {
   constructor(props) {

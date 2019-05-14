@@ -19,6 +19,10 @@
     font-weight: 500;
   }
 
+  a {
+    margin-top: 30px;
+  }
+
   button {
     background-color: #159f9e;
     height: 50px;
@@ -28,6 +32,5 @@
     border: none;
     color: $white;
     letter-spacing: 1px;
-    margin-top: 30px;
   }
 }
