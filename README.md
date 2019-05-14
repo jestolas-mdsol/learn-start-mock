@@ -11,3 +11,8 @@
   * The email and password fields cannot be blank
 * This mock is a SPA that uses react-router to move move to the stories page.
 * Stories are temporarily hard-coded since no requests are currently sent to an api to retrieve stories.
+
+### Breakpoints
+* mobile phone: `425px and below`
+* tablet: `between 426px and 850px`
+* desktop: `851px and above`
