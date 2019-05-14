@@ -1,7 +1,14 @@
 $mobileMaxWidth: 425px;
+$tabletMaxWidth: 850px;
 
 @mixin breakMobile {
   @media (max-width: $mobileMaxWidth) {
+    @content;
+  }
+}
+
+@mixin breakTablet {
+  @media (max-width: $tabletMaxWidth) {
     @content;
   }
 }

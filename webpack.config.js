@@ -35,34 +35,6 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        // use: ExtractTextPlugin.extract({
-        //   fallback: 'style-loader',
-        //   use: [
-        //     { loader: 'css-loader' },
-        //     {
-        //       loader: 'postcss-loader',
-        //       options: {
-        //         sourceMap: true,
-        //         config: { path: path.resolve(__dirname, './postcss.config.js') },
-        //       },
-        //     },
-        //     {
-        //       loader: 'sass-loader',
-        //       options: {
-        //         sourceMap: true,
-        //       },
-        //     },
-        //     {
-        //       loader: 'sass-resources-loader',
-        //       options: {
-        //         resources: [
-        //           './client/src/stylesheets/shared/_constants.scss',
-        //           './client/src/stylesheets/shared/_mixins.scss'
-        //         ]
-        //       },
-        //     },
-        //   ],
-        // }),
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -79,7 +51,7 @@ module.exports = {
               loader: 'sass-resources-loader',
               options: {
                 resources: [
-                  './client/src/stylesheets/shared/_constants.scss', // remove this if unneeded
+                  './client/src/stylesheets/shared/_constants.scss',
                   './client/src/stylesheets/shared/_mixins.scss'
                 ]
               },
