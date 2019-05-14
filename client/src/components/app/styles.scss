@@ -1,0 +1,33 @@
+.hero {
+  height: 950px;
+  background-color: $black;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 40px;
+
+  h1 {
+    font-size: $heading-l;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  p {
+    font-size: $text-l;
+    font-weight: 500;
+  }
+
+  button {
+    background-color: #159f9e;
+    height: 50px;
+    width: 120px;
+    font-size: $text-l;
+    font-weight: 600;
+    border: none;
+    color: $white;
+    letter-spacing: 1px;
+    margin-top: 30px;
+  }
+}
