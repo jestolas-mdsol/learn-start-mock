@@ -68,6 +68,11 @@ class App extends Component {
     })
   }
 
+  renderStories =() => {
+    console.log('whee')
+    return null;
+  }
+
   render() {
     return(
       <div>
