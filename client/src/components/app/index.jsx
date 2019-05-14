@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom"
+
+import Hero from '../hero';
+import Stories from '../stories';
 import SignUp from '../sign-up';
 import Header from '../header';
 import styles from './styles';
@@ -13,6 +17,9 @@ class App extends Component {
       password: '',
       showSignup: true,
       formSubmitted: false,
+
+      // ideally, react-router-dom should be implemented
+      // this is just a placeholder to render stories vs
     }
   }
 
@@ -69,11 +76,8 @@ class App extends Component {
       <div>
         {this.renderSignup()}
         <Header toggleSignup={this.toggleSignup} />
-        <div className="hero">
-          <h1>Stay hungry. Stay Foolish.</h1>
-          <p>Learn from the hottest startups in the world</p>
-          <button>Read Now</button>
-        </div>
+        <Route exact path="/" component={Hero} />
+        <Route path="/stories" component={Stories} />
       </div>
     )
   }
