@@ -17,9 +17,6 @@ class App extends Component {
       password: '',
       showSignup: true,
       formSubmitted: false,
-
-      // ideally, react-router-dom should be implemented
-      // this is just a placeholder to render stories vs
     }
   }
 
