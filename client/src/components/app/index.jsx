@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router-dom'
-// import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import Hero from '../hero';
 import Stories from '../stories';
 import SignUp from '../sign-up';
 import Header from '../header';
+import { latestStories, editorsPicks, buildStories } from './config.js'
 
 const history = createBrowserHistory();
 
@@ -20,12 +20,20 @@ class App extends Component {
       email: '',
       password: '',
       signedIn: false,
+      showSignup: true,
       formSubmitted: false,
+      latestStories: [],
+      editorsPicks: [],
     }
   }
 
+  componentDidMount() {
+    this.updateStories({ type: 'latest', stories: buildStories(latestStories) });
+    this.updateStories({ type: 'editors', stories: buildStories(editorsPicks) });
+  }
+
   renderSignup = () => {
-    return !this.state.signedIn ?
+    return this.state.showSignup ?
       <SignUp
         handleInputChange={this.updateInputField}
         handleSubmit={this.handleSignupSubmit}
@@ -46,17 +54,19 @@ class App extends Component {
     })
   }
 
-  toggleSignup = () => {
-    if (this.state.signedIn) {
-      this.setState({
-        name: '',
-        email: '',
-        password: '',
-        formSubmitted: false,
-      })
-    }
+  logout = () => {
+    this.setState({
+      signedIn: false,
+      name: '',
+      email: '',
+      password: '',
+      formSubmitted: false,
+      showSignup: true,
+    }, () => { this.toggleSignup() });
+  }
 
-    this.setState({ signedIn: !this.state.signedIn })
+  toggleSignup = () => {
+    this.setState({ showSignup: !this.state.showSignup })
   }
 
   validateEmail = () => {
@@ -71,7 +81,10 @@ class App extends Component {
       formSubmitted: true,
     }, () => {
       if (this.state.name.length && this.state.emailValid && this.state.password.length) {
-        this.setState({ signedIn: true }, () => { history.push('/stories') });
+        this.setState({
+          signedIn: true,
+          showSignup: false,
+        }, () => { history.push('/stories') });
       }
 
       if (!this.state.emailValid) {
@@ -80,18 +93,38 @@ class App extends Component {
     })
   }
 
+  updateStories = ({ type, stories }) => {
+    if (type === 'latest') {
+      this.setState({ latestStories: stories });
+    } else if (type === 'editors') {
+      this.setState({ editorsPicks: stories });
+    } else {
+      return;
+    }
+  }
+
   render() {
     return(
       <Router history={history}>
         <div>
           {this.renderSignup()}
           <Header
+            logout={this.logout}
             toggleSignup={this.toggleSignup}
             signedIn={this.state.signedIn}
             name={this.state.name}
           />
           <Route exact path="/" component={Hero} />
-          <Route path="/stories" component={Stories} />
+          <Route
+            path="/stories"
+            component={
+              (props) => <Stories
+                {...props}
+                latestStories={this.state.latestStories}
+                editorsPicks={this.state.editorsPicks}
+                signedIn={this.state.signedIn}
+              />}
+          />
         </div>
       </Router>
     )

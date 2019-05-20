@@ -4,13 +4,12 @@ export const latestStories = {
 }
 
 export const editorsPicks = {
-  title: 'Griffin door: Volume',
+  title: 'Gryphon\'s Door: Volume',
   author: 'Gandalf Silver'
 }
 
 export const buildStories = ({ title, author }) => (
   Array(3).fill().map((_, i) => {
-    // const story = storyObject;
     const newTitle = `${title} ${i + 1}`
 
     return Object.assign({}, { title: newTitle, author });

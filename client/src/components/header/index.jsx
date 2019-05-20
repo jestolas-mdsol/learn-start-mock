@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'; // can implement later
 import { Link } from "react-router-dom"
 import styles from './styles';
 
-const Header = ({ toggleSignup, signedIn, name}) => {
+const Header = ({ logout, toggleSignup, signedIn, name}) => {
   const renderSignUpOrLogout = () => {
     if (signedIn && name.length) {
-      return 'Log Out'
+      return(<p onClick={logout}>Log Out</p>)
     } else {
-      return 'Sign Up'
+      return (<p onClick={toggleSignup}>Sign Up</p>)
     }
   }
 
@@ -19,9 +19,9 @@ const Header = ({ toggleSignup, signedIn, name}) => {
       <Link to="/">
         <h4 className="header_left_content">LearnStart</h4>
       </Link>
-      <div onClick={toggleSignup} className="header_right_content">
+      <div className="header_right_content">
         {renderUsername()}
-        <p>{renderSignUpOrLogout()}</p>
+        {renderSignUpOrLogout()}
       </div>
     </div>
   )
