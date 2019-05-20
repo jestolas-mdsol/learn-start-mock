@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './styles';
 
-const SignUp = ({ handleInputChange, handleSubmit, toggleSignup, emailValid, formSubmitted, email, password }) => {
+const SignUp = ({
+  handleInputChange,
+  handleSubmit,
+  toggleSignup,
+  emailValid,
+  formSubmitted,
+  name,
+  email,
+  password,
+}) => {
   const handleEmailChange = (e) => {
     handleInputChange({ type: 'email', value: e.target.value })
   }
@@ -11,6 +20,12 @@ const SignUp = ({ handleInputChange, handleSubmit, toggleSignup, emailValid, for
   const handlePasswordChange = (e) => {
     handleInputChange({ type: 'password', value: e.target.value })
   }
+
+  const handleNameChange = (e) => {
+    handleInputChange({ type: 'name', value: e.target.value })
+  }
+
+  const showNameError = cx({ 'inputError': formSubmitted && name.length < 1 })
 
   const showEmailError = cx({ 'inputError': formSubmitted && !emailValid })
 
@@ -25,6 +40,12 @@ const SignUp = ({ handleInputChange, handleSubmit, toggleSignup, emailValid, for
             <p onClick={toggleSignup}>&times;</p>
           </div>
           <h3>Sign Up</h3>
+          <input
+            value={name}
+            className={showNameError}
+            onChange={handleNameChange}
+            placeholder="Name"
+          />
           <input
             value={email}
             className={showEmailError}
