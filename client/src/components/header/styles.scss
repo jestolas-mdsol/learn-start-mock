@@ -15,7 +15,8 @@
   margin: 20px 0 0 40px;
 
   @include breakMobile {
-    margin: 16px 0 0 30px;
+    margin: 16px 0 0 16px;
+    font-size: $heading-xs;
   }
 }
 
@@ -26,6 +27,11 @@
   margin-right: 30px;
   cursor: pointer;
 
+  @include breakMobile {
+    margin-top: 19px;
+    margin-right: 16px;
+  }
+
   p {
     display: inline-block;
     vertical-align: top;
@@ -34,6 +40,10 @@
     &.header_username {
       color: $black;
       margin-right: 30px;
+
+      @include breakMobile {
+        margin-right: 6px;
+      }
     }
   }
 }

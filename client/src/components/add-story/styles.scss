@@ -23,6 +23,13 @@
   margin: auto;
   bottom: 0;
 
+  @include breakMobile {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+  }
+
   h1 {
     text-align: center;
   }
