@@ -6,6 +6,7 @@ import Hero from '../hero';
 import Stories from '../stories';
 import SignUp from '../sign-up';
 import Header from '../header';
+import AddStory from '../add-story';
 import { latestStories, editorsPicks, buildStories } from './config.js'
 
 const history = createBrowserHistory();
@@ -16,14 +17,19 @@ class App extends Component {
 
     this.state = {
       emailValid: false,
-      name: '',
+      // name: '',
+      name: 'Aragorn Elessar',
       email: '',
       password: '',
-      signedIn: false,
-      showSignup: true,
+      // signedIn: false,
+      signedIn: true,
+      // showSignup: true,
+      showSignup: false,
       formSubmitted: false,
       latestStories: [],
       editorsPicks: [],
+      storyTitle: '',
+      storyContent: '',
     }
   }
 
@@ -103,11 +109,63 @@ class App extends Component {
     }
   }
 
+  toggleAddStory = () => { this.setState({ showAddStory: !this.state.showAddStory }) }
+
+  createStory = ({ title, content }) => {
+    const stories = this.state.latestStories;
+    const newStory = {
+      title,
+      content,
+      author: this.state.name,
+    };
+    stories.unshift(newStory);
+
+    this.setState({
+      latestStories: stories,
+      storyTitle: '',
+      storyContent: '',
+    })
+  }
+
+  renderAddStory = () => {
+    return this.state.showAddStory ?
+      <AddStory
+        storyTitle={this.state.storyTitle}
+        storyContent={this.state.storyContent}
+        handleInputChange={this.updateInputField}
+        createStory={this.createStory}
+        toggleAddStory={this.toggleAddStory}
+      /> :
+      null;
+  }
+
+  deleteStory = ({ storyType, idx }) => {
+    const stories = this.state[`${storyType}`];
+
+    stories.splice(idx, 1);
+
+    this.setState({ [`${storyType}`]: stories });
+  }
+
+  featureStory = ({ idx }) => {
+    const latestStories = this.state.latestStories;
+    const editorsPicks = this.state.editorsPicks;
+    const featuredStory = latestStories.splice(idx, 1)[0];
+
+    editorsPicks.unshift(featuredStory);
+
+    // debugger
+
+    this.setState({ latestStories, editorsPicks });
+
+  }
+
   render() {
     return(
       <Router history={history}>
         <div>
           {this.renderSignup()}
+          {this.renderAddStory()}
           <Header
             logout={this.logout}
             toggleSignup={this.toggleSignup}
@@ -123,6 +181,9 @@ class App extends Component {
                 latestStories={this.state.latestStories}
                 editorsPicks={this.state.editorsPicks}
                 signedIn={this.state.signedIn}
+                toggleAddStory={this.toggleAddStory}
+                deleteStory={this.deleteStory}
+                featureStory={this.featureStory}
               />}
           />
         </div>

@@ -1,11 +1,13 @@
 export const latestStories = {
   title: 'Tales Of Mordor: Chapter',
-  author: 'Yolo Baggins'
+  author: 'Yolo Baggins',
+  content: 'Lorem ipsum dolor set amet...',
 }
 
 export const editorsPicks = {
   title: 'Gryphon\'s Door: Volume',
-  author: 'Gandalf Silver'
+  author: 'Gandalf Silver',
+  content: 'Lorem ipsum dolor set amet...',
 }
 
 export const buildStories = ({ title, author }) => (

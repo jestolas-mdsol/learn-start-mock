@@ -26,7 +26,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
 
   @include breakTablet {
@@ -148,5 +148,16 @@
   width: 100px;
   height: 30px;
   background-color: $turquoise;
+  font-weight: 600;
+}
+
+.story_card_rounded_button {
+  background-color: $white;
+  color: $turquoise;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 15px;
   font-weight: 600;
 }

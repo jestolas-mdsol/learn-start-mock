@@ -1,0 +1,71 @@
+.overlay {
+  background-color: $black;
+  height: 100%;
+  opacity: 0.8;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  @include breakMobile {
+    display: none;
+  }
+}
+
+.add_story_wrapper {
+  height: 360px;
+  width: 400px;
+  background-color: $white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: auto;
+  bottom: 0;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.add_story_form {
+  padding: 0 40px;
+
+  input {
+    display: block;
+    border: 1px solid $gray-2;
+    width: 100%;
+    background: $gray-3;
+    margin-bottom: 10px;
+
+    &.title {
+      height: 60px;
+    }
+
+    &.content {
+      height: 120px;
+    }
+  }
+
+  button {
+    display: inline-block;
+    width: 48%;
+    color: $white;
+    font-weight: 600;
+    font-size: 15px;
+    height: 40px;
+
+
+    &.create_story {
+      background-color: $turquoise;
+      color: $white;
+      float: left;
+    }
+
+    &.cancel_story {
+      background-color: $gray-1;
+      color: $white;
+      float: right;
+    }
+  }
+}
