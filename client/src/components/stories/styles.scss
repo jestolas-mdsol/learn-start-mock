@@ -90,7 +90,7 @@
   background-color: $gray-1;
 
   @include breakTablet {
-    height: 100%;
+    height: 320px;
     width: 50%;
   }
 
@@ -160,4 +160,8 @@
   border: none;
   border-radius: 15px;
   font-weight: 600;
+
+  @include breakTablet {
+    float: none;
+  }
 }

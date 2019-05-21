@@ -38,9 +38,11 @@ const Story = ({ idx, title, author, imageFloatLeft, deleteStory, featureStory, 
 
   return(
     <div className={productCardClassNames}>
-      {renderDeleteButton()}
-      {renderFeatureButton()}
-      <div className="image_placeholder" />
+      <div>
+        {renderDeleteButton()}
+        {renderFeatureButton()}
+        <div className="image_placeholder" />
+      </div>
       <div className="product_description">
         <h4>{title}</h4>
         <div className="author_wrapper">
