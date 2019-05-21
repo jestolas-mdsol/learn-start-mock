@@ -29,7 +29,7 @@ const AddStory = ({ storyTitle, storyContent, handleInputChange, createStory, to
             onChange={handleTitleChange}
             value={storyTitle}
           />
-          <input
+          <textarea
             className="content"
             placeholder="Story"
             onChange={handleContentChange}
